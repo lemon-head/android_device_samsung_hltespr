@@ -9,6 +9,8 @@ system/bin/qmuxd
 system/bin/rild
 system/bin/sec-ril
 system/bin/smdexe
+system/cameradata/datapattern_420sp.yuv
+system/cameradata/datapattern_front_420sp.yuv
 system/etc/Diag.cfg
 system/etc/Diag_zero.cfg
 system/lib/libakm.so
