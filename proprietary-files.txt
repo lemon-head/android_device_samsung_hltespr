@@ -1,14 +1,11 @@
 # Bins
-bin/mpdecision
 #bin/prepare_param.sh
-
-# Thermal
-bin/thermald
-bin/thermal-engine
 
 # Bluetooth firmware
 vendor/firmware/bcm2079xB4_firmware.ncd
 vendor/firmware/bcm2079xB4_pre_firmware.ncd
+vendor/firmware/bcm2079xB5_firmware.ncd
+vendor/firmware/bcm2079xB5_pre_firmware.ncd
 vendor/firmware/bcm4335.hcd
 vendor/firmware/bcm4335_A0.hcd
 vendor/firmware/bcm4335_murata.hcd
@@ -28,12 +25,6 @@ lib/libmmosal.so
 lib/libdivxdrm.so
 
 # Adreno GPU (Available on Nexus 4)
-lib/egl/eglsubAndroid.so
-lib/egl/libEGL_adreno200.so
-lib/egl/libGLESv1_CM_adreno200.so
-lib/egl/libGLESv2_adreno200.so
-lib/egl/libq3dtools_adreno200.so
-#lib/egl/libplayback_adreno200.so
 #lib/libc2d2_z180.so
 lib/libc2d2_a3xx.so
 lib/libgsl.so
@@ -51,24 +42,13 @@ etc/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw
 #etc/firmware/leia_pfp_470.fw
 #etc/firmware/leia_pm4_470.fw
-etc/firmware/vidc_1080p.fw
-#etc/firmware/yamato_pfp.fw
-#etc/firmware/yamato_pm4.fw
 
 # Graphics
 lib/libmm-color-convertor.so
 
 # Radio
 bin/ds_fmc_appd
-bin/efsks
-bin/ks
-bin/netmgrd
-bin/sec-ril
-bin/qcks
 bin/qmiproxy
-bin/qmuxd
-bin/rild
-bin/rmt_storage
 lib/libatparser.so
 lib/libcordon.so
 lib/libdiag.so
@@ -93,7 +73,6 @@ lib/libril-qcril-hook-oem.so
 lib/libsecril-client.so
 
 # Time services
-bin/time_daemon
 lib/libtime_genoff.so
 
 
@@ -104,16 +83,10 @@ lib/libloc_api_v02.so
 # Sensors
 lib/libsensirion_j1.so
 lib/libsam.so
-lib/hw/sensors.msm8960.so
-lib/hw/sensorhubs.msm8960.so
+lib/hw/sensors.msm8974.so
+lib/hw/sensorhubs.msm8974.so
 
 # Camera
-bin/mm-qcamera-daemon
-cameradata/M10MO_SFW.bin
-cameradata/RS_M10MO_OL.bin
-cameradata/RS_M10MO_OS.bin
-cameradata/RS_M10MO_SL.bin
-cameradata/RS_M10MO_SS.bin
 cameradata/datapattern_420sp.yuv
 cameradata/datapattern_front_420sp.yuv
 lib/hw/camera.msm8960.so
@@ -177,38 +150,22 @@ lib/libvdis.so
 
 # Wi-Fi
 etc/wifi/bcmdhd_apsta.bin
-etc/wifi/bcmdhd_apsta.bin_a0
+etc/wifi/bcmdhd_ibss.bin
 etc/wifi/bcmdhd_mfg.bin
-etc/wifi/bcmdhd_mfg.bin_a0
 etc/wifi/bcmdhd_sta.bin
-etc/wifi/bcmdhd_sta.bin_a0
 etc/wifi/cred.conf
 etc/wifi/nvram_mfg.txt
-etc/wifi/nvram_mfg.txt_a0
-etc/wifi/nvram_mfg.txt:etc/wifi/nvram_mfg.txt_murata
-etc/wifi/nvram_mfg.txt_murata_a0
+etc/wifi/nvram_mfg.txt_murata
 etc/wifi/nvram_mfg.txt_muratafem1
-etc/wifi/nvram_mfg.txt_muratafem2
-etc/wifi/nvram_mfg.txt_semco3rd
-etc/wifi/nvram_mfg.txt_semco3rd_a0
-etc/wifi/nvram_mfg.txt_semcosh
 etc/wifi/nvram_net.txt
-etc/wifi/nvram_net.txt_a0
-etc/wifi/nvram_net.txt:etc/wifi/nvram_net.txt_murata
-etc/wifi/nvram_net.txt_murata_a0
+etc/wifi/nvram_net.txt_murata
 etc/wifi/nvram_net.txt_muratafem1
-etc/wifi/nvram_net.txt_muratafem2
-etc/wifi/nvram_net.txt_semco3rd
-etc/wifi/nvram_net.txt_semco3rd_a0
-etc/wifi/nvram_net.txt_semcosh
 etc/wifi/wpa_supplicant.conf
 
 # Perf
 lib/libqc-opt.so
 
 # DRM
-bin/qseecomd
-#bin/scranton_RD
 lib/libdrmdecrypt.so
 lib/libdrmfs.so
 lib/libdrmtime.so
