@@ -1,5 +1,5 @@
 ## (2) Also get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/hlte/hlte-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/hltespr/hlte-vendor.mk)
 
 ## device overlays
 DEVICE_PACKAGE_OVERLAYS += device/samsung/hltespr/overlay
