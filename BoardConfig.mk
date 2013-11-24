@@ -8,7 +8,9 @@
 TARGET_OTA_ASSERT_DEVICE := hltespr
 
 # Kernel
-TARGET_KERNEL_CONFIG := hltespr_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/sm900p
+TARGET_KERNEL_CONFIG := msm8974_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := msm8974_sec_hltespr_defconfig
 
 # The generic product target doesn't have any hardware-specific pieces.
 TARGET_NO_BOOTLOADER := true
