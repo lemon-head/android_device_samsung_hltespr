@@ -1,11 +1,13 @@
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+## (2) Also get non-open-source specific aspects if available
+$(call inherit-product-if-exists, vendor/samsung/hlte/hlte-vendor.mk)
 
-# The gps config appropriate for this device
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
-
-$(call inherit-product-if-exists, vendor/samsung/hltespr/hltespr-vendor.mk)
-
+## device overlays
 DEVICE_PACKAGE_OVERLAYS += device/samsung/hltespr/overlay
+## common overlays
+DEVICE_PACKAGE_OVERLAYS += device/samsung/hlte-common/overlay-gsm
+
+# Inherit from jf-common
+$(call inherit-product, device/samsung/hlte-common/hlte-common.mk)
 
 LOCAL_PATH := device/samsung/hltespr
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -16,24 +18,3 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/fstab.qcom:recovery/root/fstab.qcom
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/libkeyutils.so:recovery/root/sbin/libkeyutils.so \
-    $(LOCAL_PATH)/recovery/libsec_ecryptfs.so:recovery/root/sbin/libsec_ecryptfs.so \
-    $(LOCAL_PATH)/recovery/libsec_km.so:recovery/root/sbin/libsec_km.so
-
-# SELinux
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/selinux/file_contexts:recovery/root/file_contexts \
-    $(LOCAL_PATH)/selinux/property_contexts:recovery/root/property_contexts \
-    $(LOCAL_PATH)/selinux/seapp_contexts:recovery/root/seapp_contexts \
-    $(LOCAL_PATH)/selinux/sepolicy:recovery/root/sepolicy \
-    $(LOCAL_PATH)/selinux/sepolicy_version:recovery/root/sepolicy_version
-
-$(call inherit-product, build/target/product/full.mk)
-
-PRODUCT_NAME := samsung_hltespr
-PRODUCT_BRAND := Samsung
