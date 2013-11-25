@@ -1,46 +1,58 @@
-# inherit from common hlte
--include device/samsung/hlte-common/BoardConfigCommon.mk
+USE_CAMERA_STUB := true
+
+# inherit from common msm8960
+-include device/samsung/msm8960-common/BoardConfigCommon.mk
 
 # inherit from the proprietary version
 -include vendor/samsung/hltespr/BoardConfigVendor.mk
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := hltespr
+TARGET_NO_BOOTLOADER := true
+TARGET_BOOTLOADER_BOARD_NAME := hltespr
 
+<<<<<<< HEAD
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/sm900p
 TARGET_KERNEL_CONFIG := msm8974_defconfig
 TARGET_KERNEL_VARIANT_CONFIG := msm8974_sec_hltespr_defconfig
+=======
+# Platform
+TARGET_BOARD_PLATFORM := msm8660
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+>>>>>>> Update
 
-# The generic product target doesn't have any hardware-specific pieces.
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_KERNEL := true
-TARGET_ARCH := arm
+# Flags
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE
 
-TARGET_ARCH_VARIANT := armv7-a
-TARGET_CPU_VARIANT := generic
+# Architecture
+TARGET_CPU_VARIANT := krait
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
 
-HAVE_HTC_AUDIO_DRIVER := true
-BOARD_USES_GENERIC_AUDIO := true
 
-# no hardware camera
-USE_CAMERA_STUB := true
+BOARD_KERNEL_CMDLINE :=  console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F
+BOARD_KERNEL_BASE :=  0x00000000
+#BOARD_FORCE_RAMDISK_ADDRESS := 0x02000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
-# Enable dex-preoptimization to speed up the first boot sequence
-# of an SDK AVD. Note that this operation only works on Linux for now
-ifeq ($(HOST_OS),linux)
-  ifeq ($(WITH_DEXPREOPT),)
-    WITH_DEXPREOPT := true
-  endif
-endif
+BOARD_BOOTIMAGE_PARTITION_SIZE :=     0x105c0000
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00D00000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x105c0000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x105c0000
+BOARD_FLASH_BLOCK_SIZE := 131072
 
-# Build OpenGLES emulation guest and host libraries
-BUILD_EMULATOR_OPENGL := true
+TARGET_PREBUILT_KERNEL := device/samsung/hltespr/kernel
 
-# Build and enable the OpenGL ES View renderer. When running on the emulator,
-# the GLES renderer disables itself if host GL acceleration isn't available.
-USE_OPENGL_RENDERER := true
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 
-BOARD_USES_ALSA_AUDIO := true
+# Use this flag if the board has a ext4 partition larger than 2gb
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
