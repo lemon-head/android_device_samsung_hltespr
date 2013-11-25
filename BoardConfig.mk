@@ -27,7 +27,7 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-
+# Kernel
 BOARD_KERNEL_CMDLINE :=  console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F
 BOARD_KERNEL_BASE :=  0x00000000
 #BOARD_FORCE_RAMDISK_ADDRESS := 0x02000000
@@ -49,3 +49,6 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+
+# Audio
+TARGET_USES_CAF_AUDIO := True
