@@ -9,16 +9,9 @@ USE_CAMERA_STUB := true
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := hltespr
 
-<<<<<<< HEAD
-# Kernel
-TARGET_KERNEL_SOURCE := kernel/samsung/sm900p
-TARGET_KERNEL_CONFIG := msm8974_defconfig
-TARGET_KERNEL_VARIANT_CONFIG := msm8974_sec_hltespr_defconfig
-=======
 # Platform
 TARGET_BOARD_PLATFORM := msm8660
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
->>>>>>> Update
 
 # Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
