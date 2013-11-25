@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-## (2) Also get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/hltespr/hlte-vendor.mk)
-=======
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
->>>>>>> Update
 
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
@@ -21,8 +16,6 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
-<<<<<<< HEAD
-=======
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.qcom:recovery/root/fstab.qcom
@@ -44,4 +37,3 @@ $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_NAME := SM-N900P
 PRODUCT_BRAND := samsung
->>>>>>> Update
